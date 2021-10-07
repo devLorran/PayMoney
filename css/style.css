@@ -1,0 +1,143 @@
+/* FORMATAÇÃO GERAL DO SITE */
+html{
+    overflow-x: hidden;
+}
+/* Cards */
+#card-one{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#card-two{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    wdith:100%;
+}
+#card-three{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+#card-four{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+/* CSS SOBRE */
+#card-sobre{
+    width: 25%;
+    box-shadow: 0px 0px 12px 0px #232323;
+    background: rgb(72, 164, 255);
+    height: 250px;
+    text-align: center;
+    white-space: pre-line;
+    line-height: 1;
+    position: relative;
+    left: 100px;
+    border-radius: 3px 6px;
+    float: left;
+    top: 155px;
+}
+#sobre{
+    background-image: linear-gradient(to right, rgb(193, 234, 253), rgb(16, 178, 253));
+    height: 500px;
+    width: 100%;
+}
+#card-one div{
+    text-align: center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+}
+
+/* Localidades */
+#localidades{
+    background-image: linear-gradient(to right, rgb(16, 178, 253), rgb(193, 234, 253));
+    height: 500px;
+    width: 100%;
+}
+#card-localidades{
+    width: 25%;
+    box-shadow: 0px 0px 12px 0px #232323;
+    background: rgb(72, 164, 255);
+    height: 250px;
+    text-align: center;
+    line-height: 20px;
+    position: relative;
+    right: 100px;
+    border-radius: 3px 6px;
+    float: right;
+    top: 120px;
+    color:#ffffff;
+}
+#card-content-localidades h3{
+    margin-top: 21px;
+}
+
+/*Confirma */
+#card-confirma{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+/* Categorias*/
+#categoria{
+    background-image: linear-gradient(to right, rgb(193, 234, 253), rgb(16, 178, 253));
+    height: 500px;
+    width: 100%;
+}
+#card-categoria{
+    width: 25%;
+    box-shadow: 0px 0px 12px 0px #232323;
+    background: rgb(72, 164, 255);
+    height: 250px;
+    text-align: center;
+    line-height: 20px;
+    position: relative;
+    left: 100px;
+    border-radius: 3px 6px;
+    float: left;
+    top: 145px;
+}
+#card-content-categoria{
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 15px;
+}
+
+/* CSS CONFIRMA */
+#confirma{
+    background-image: linear-gradient(to right, rgb(16, 178, 253), rgb(193, 234, 253));
+    height: 500px;
+    width: 100%;
+}
+#card-confirma{
+    width: 25%;
+    box-shadow: 0px 0px 12px 0px #232323;
+    background: rgb(72, 164, 255);
+    height: 250px;
+    text-align: center;
+    line-height: 30px;
+    position: relative;
+    right: 100px;
+    border-radius: 3px 6px;
+    float: right;
+    top: 130px;
+}
+#card-content-confirma{
+    font-size: 3vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    padding: 25px;
+}

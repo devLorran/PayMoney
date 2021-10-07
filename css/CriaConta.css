@@ -1,0 +1,39 @@
+html{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+}
+#formCriaConta{
+    white-space: pre-line;
+    box-shadow: 0px 0px 12px 0px #a7a6a6;
+    height: 650px;
+    padding: 62px 32px;
+    display: grid;
+    background: rgb(72, 164, 255);
+    position: relative;
+    top: 0px;
+    width: 60%;
+    text-align: center;
+}
+#criaConta{
+    position: relative;
+    top: 12px;
+    width: 50%;
+}
+#voltar{
+    position: relative;
+    top: 12px;
+    width: 50%;
+}
+.buttons{
+    white-space: nowrap;
+    width: 50%;
+    margin-top: 10px;
+}
+.div-form{
+    display: grid;
+    position: relative;
+    bottom: 48px;
+    margin: 9px;
+}

@@ -1,0 +1,77 @@
+html{
+    width:100%;
+}
+/* Inicio contatos */
+#contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #CAE1FF;
+    width: 100%;
+}
+#contato h2{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-size: 2em;
+    text-align: center;
+    color: #4619E1;
+}
+#contato > p{ /* Essa seta faz com que o CSS altere só um paragrafo */
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #4619E1;
+    text-align: center;
+}
+#contato a{
+    text-decoration: none;
+    color:#4619E1;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+/* Fim contatos */
+
+/* FOOTER */
+footer{
+    text-align: center;
+    width:100%;
+    background-image: linear-gradient(to right, rgb(193, 234, 253), rgb(16, 178, 253));
+    color: #f1f1f1;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.hobby{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+}
+.hobby h2{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    font-size: 2em;
+    text-align: center;
+}
+.hobby h4{
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 14px;
+}
+#contato > p{ /* Essa seta faz com que o CSS altere só um paragrafo */
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #4619E1;
+    text-align: center;
+}
+#contato a{
+    text-decoration: none;
+    color:#4619E1;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+/* FIM FOOTER */
