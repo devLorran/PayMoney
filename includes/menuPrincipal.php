@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include_once("./database/database2.php");
+  include_once("./database/database.php");
+  //session_start();
   $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
   $result_usuario = "SELECT id FROM contas";
   $row_usuario = @mysqli_fetch_assoc($resultado_usuario);
@@ -22,7 +22,7 @@
           <label id="numConta">Numero da Conta:<input type="text" name="numContaini" class="container form-control" value="<?php echo $_SESSION['numeroConta']; ?>" readonly></label>
           <label id="numConta">Numero da Conta:<input type="text" name="numContadest" class="container form-control"></label>
           <label id="valor">Valor: <input type="number" name="valor" id="valor" class="container form-control"></label>
-          <label id="senha">Senha: <input type="password" name="senha" class="container form-control"></label>
+          <!--<label id="senha">Senha: <input type="password" name="senha" class="container form-control"></label>-->
           <button type="button" id="btn-fechar" class="container form-control btn btn-secondary" data-dismiss="modal">Fechar</button>
           <button type="submit" name="transfere" class="container form-control btn btn-success" onclick="transfereDinheiro()">Transferir</button>
         </div>
@@ -154,8 +154,6 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script>
       var saldo = <?php echo $_SESSION['usuarioSaldo']; ?>;
-      var conta = <?php echo $_SESSION['usuarioConta']; ?>;
-      var valor = document.geElementById("valor").value
       function ExcluindoConta(){
           //alert(saldo)
           const resposta = confirm("Deseja mesmo excluir sua conta?");
@@ -168,6 +166,9 @@
               }
           }
       }
+      //var conta = <?php //echo $_SESSION['usuarioConta']; ?>;
+      
+      var valor = document.geElementById("valor");
       function transfereDinheiro(){
         const resposta = confirm("Transferir o valor para " + conta + " ?");
         if (resposta) {
