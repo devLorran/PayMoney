@@ -17,13 +17,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form id="formTransfereDinheiro" action="./transfereDinheiro.php" method="post" class="container">
+      <form id="formTransfereDinheiro" action="./actions/processaTransfereDinheiro.php" method="post" class="container">
       <div class="modal-body">
-          <label id="numConta">Numero da Conta:<input type="text" name="numConta" class="container form-control"></label>
-          <label id="valor">Valor: <input type="number" name="valor" class="container form-control"></label>
+          <label id="numConta">Numero da Conta:<input type="text" name="numContaini" class="container form-control" value="<?php echo $_SESSION['numeroConta']; ?>" readonly></label>
+          <label id="numConta">Numero da Conta:<input type="text" name="numContadest" class="container form-control"></label>
+          <label id="valor">Valor: <input type="number" name="valor" id="valor" class="container form-control"></label>
           <label id="senha">Senha: <input type="password" name="senha" class="container form-control"></label>
           <button type="button" id="btn-fechar" class="container form-control btn btn-secondary" data-dismiss="modal">Fechar</button>
-          <button type="submit" name="transfere" class="container form-control btn btn-success">Transferir</button>
+          <button type="submit" name="transfere" class="container form-control btn btn-success" onclick="transfereDinheiro()">Transferir</button>
         </div>
         </form>
         <div id="footer-modal" class="modal-footer bg-primary">
@@ -34,7 +35,7 @@
 </div>
 
 
-<!-- Modal Transfere Extrato-->
+<!-- Modal Tirar Extrato-->
 <div class="modal fade" id="ModalExibeExtrato" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -108,7 +109,7 @@
   </div>
 </div>
 
-<!-- Modal Transfere exclui Conta-->
+<!-- Modal exclui Conta-->
 <div class="modal fade" id="ModalExcluiConta" tabindex="-2" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -122,6 +123,7 @@
       <div class="modal-body">
         <h5>Excluir a Conta</h5>
         <label id="valor">Numero da conta:<input class="container form-control" value="<?php echo $_SESSION['numeroConta']; ?>" id="numeroConta" type="text" name="numeroConta" readonly></label>
+        <label id="valor">Saldo:<input class="container form-control" value="<?php echo $_SESSION['usuarioSaldo']; ?>" id="saldo" type="text" name="saldo" readonly></label>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         <button type="submit" name="btnExcluir" class="btn btn-danger" onclick="ExcluindoConta()">Excluir minha conta</button>
       </div>
@@ -150,22 +152,34 @@
 </div>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>
-        var saldo = <?php echo $_SESSION['usuarioSaldo']; ?>;
-        
-        function ExcluindoConta(){
-            //alert(saldo)
-            const resposta = confirm("Deseja mesmo excluir sua conta?");
-            if (resposta) {
-                if(saldo > 0){
-                    alert('Você não pode excluir sua conta pois você possui saldo de ' + saldo + ' nela!')
-                    window.location.href = "index2.php";
-                }else{
-                    window.location.href = "./actions/processarExcluirConta.php";
-                }
-            }
+  <script>
+      var saldo = <?php echo $_SESSION['usuarioSaldo']; ?>;
+      var conta = <?php echo $_SESSION['usuarioConta']; ?>;
+      var valor = document.geElementById("valor").value
+      function ExcluindoConta(){
+          //alert(saldo)
+          const resposta = confirm("Deseja mesmo excluir sua conta?");
+          if (resposta) {
+              if(saldo > 0){
+                  alert('Você não pode excluir sua conta pois você possui saldo de ' + saldo + ' nela!')
+                  window.location.href = "index2.php";
+              }else{
+                  window.location.href = "./actions/processarExcluirConta.php";
+              }
+          }
+      }
+      function transfereDinheiro(){
+        const resposta = confirm("Transferir o valor para " + conta + " ?");
+        if (resposta) {
+          if (valor <= 0) {
+            window.location.href = "index2.php";
+          } else {
+            alert("Dinheiro transferido com sucesso!");
+            window.location.href = "./actions/processarTransfereDinheiro.php";
+          }
         }
-    </script>
+      }
+  </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script type="text/javascript">

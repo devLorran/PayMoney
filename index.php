@@ -13,7 +13,7 @@
         include("./includes/menuIndex.php");
 
     ?>
-    <title>Money Pay</title>
+    <title>Pay Money</title>
     
 </head>
 <body>
