@@ -20,7 +20,7 @@
       <form id="formTransfereDinheiro" action="./actions/processaTransfereDinheiro.php" method="post" class="container">
       <div class="modal-body">
           <label id="numConta">Numero da Conta:<input type="text" name="numContaini" class="container form-control" value="<?php echo $_SESSION['numeroConta']; ?>" readonly></label>
-          <label id="numConta">Numero da Conta:<input type="text" name="numContadest" class="container form-control"></label>
+          <label id="numConta">Numero da Conta Destino:<input type="text" name="numContadest" class="container form-control"></label>
           <label id="valor">Valor: <input type="number" name="valor" id="valor" class="container form-control"></label>
           <!--<label id="senha">Senha: <input type="password" name="senha" class="container form-control"></label>-->
           <button type="button" id="btn-fechar" class="container form-control btn btn-secondary" data-dismiss="modal">Fechar</button>
@@ -62,7 +62,7 @@
 
 <!-- Modal Edita conta-->
 <div class="modal fade" id="ModalEditaConta" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div id="modal" class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header bg-primary">
         <h5 class="modal-title" id="exampleModalLongTitle">Editar Conta</h5>
@@ -71,13 +71,31 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="./actions/editaConta.php" method="post">
-
+        <form id="form-edita" class="form-group container" action="./actions/processaEditaConta.php" method="post">
+        <label id="nome">ID:<input readonly class="container form-control" value="<?php echo $_SESSION['UsuarioId']; ?>" id="nome" type="text" name="id"></label>
+        <label id="nome">Nome:<input class="container form-control" value="<?php echo $_SESSION['UsuarioNome']; ?>" id="nome" type="text" name="nome"></label>
+        <label id="sobrenome">Sobrenome:<input class="container form-control" value="<?php echo $_SESSION['UsuarioSobrenome']; ?>" id="nome" type="text" name="sobrenome"></label>
+        <label id="celular">Celular:<input class="container form-control" value="<?php echo $_SESSION['usuarioCelular']; ?>" id="nome" type="text" name="celular"></label>
+        <label id="estado">Estado:</label>
+        <select name="localidade" id="pais" class="form-control container">
+            <?php
+                $result_cat = "SELECT nome FROM localidades";
+                $resultado_cat = $conn->prepare($result_cat);
+                
+                $resultado_cat->execute();
+                while($row_cat = $resultado_cat->fetch(PDO::FETCH_ASSOC)){
+                    echo '<option value="'.$row_cat['nome'].'">'.$row_cat['nome'].'</option>';
+                }
+                ?>
+            </select>
+            <div id="buttons" class="container">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+              <button type="submit" id="editaConta" name="editarConta" class="btn btn-success">Editar</button>
+            </div>
         </form>
       </div>
       <div class="modal-footer bg-primary">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="busmit" class="btn btn-primary">Salvar</button>
+        Pay Money feito por Lorran <span aria-hidden="true">&reg;</span>
       </div>
     </div>
   </div>

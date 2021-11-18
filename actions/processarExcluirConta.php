@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
     include_once "../database/database.php";
     //$excluir = filter_input(INPUT_POST, 'btnExcluir', FILTER_SANITIZE_STRING);
     $numeroConta = filter_input(INPUT_POST, 'numeroConta', FILTER_SANITIZE_STRING);

@@ -23,6 +23,19 @@
             <label>CPF: <input type="text" name="cpf" id="cpf" class="form-control container"></label>
             <label>Celular: <input type="text" name="celular" id="celular" class="form-control container"></label>
             <label>Senha:<input type="password" name="senha" id="senha" class="form-control container"></label>
+            <label>País:</label>
+            <select name="pais" id="pais" class="form-control container">
+            <option value="">Selecione um país</option>
+            <?php
+                $result_cat = "SELECT nome_pais FROM pais";
+                $resultado_cat = $conn->prepare($result_cat);
+                
+                $resultado_cat->execute();
+                while($row_cat = $resultado_cat->fetch(PDO::FETCH_ASSOC)){
+                    echo '<option value="'.$row_cat['nome_pais'].'">'.$row_cat['nome_pais'].'</option>';
+                }
+                ?>
+            </select>
             <label>Estado:</label>
             <select name="localidade" id="pais" class="form-control container">
             <option value="">Selecione um estado</option>

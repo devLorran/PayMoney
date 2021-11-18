@@ -1,5 +1,5 @@
 <?php
-
+//session_start();
 include_once("./database/database.php");
 
 ?>
@@ -19,7 +19,7 @@ include_once("./database/database.php");
         <div id="divData">
     <?php
     session_start();
-        echo "<p id='UserName' class='text-left'><b>Bem-vindo:</b> ".$_SESSION['UsuarioNome']. "</p class='text'>";
+        echo "<p id='UserName' class='text-left'><b>Bem-vindo:</b> ".$_SESSION['UsuarioNome']." ".$_SESSION['UsuarioSobrenome']. "</p class='text'>";
         echo "<p id='UserCpf' class='text-left'><b>CPF: </b>". $_SESSION['usuarioCpf']. "</p class='text'>";
         echo "<p id='UserConta' class='text-left'><b>Numero da Conta: </b>". $_SESSION['numeroConta']. "</p class='text'>";
         echo "";

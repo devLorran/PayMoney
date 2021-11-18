@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include "../database/database.php"; 
+    include "./database/database.php"; 
     if(isset($_POST['logar'])) {
       $cpf = trim($_POST['cpf']);
       $senha = trim($_POST['senha']);
@@ -16,16 +16,13 @@
           if($count == 1 && !empty($row)) {
             $_SESSION['UsuarioId'] = $row['id'];
             $_SESSION['UsuarioNome'] = $row['nome'];
-            $_SESSION['UsuarioSobrenome'] = $row['sobrenome'];
             $_SESSION['usuarioCpf'] = $row['cpf'];
             $_SESSION['numeroConta'] = $row['numeroConta'];
             $_SESSION['usuarioSaldo'] =  $row['saldo'];
             $_SESSION['usuarioCelular'] =  $row['celular'];
             $_SESSION['UsuarioSobrenome'] = $row['sobrenome'];
             //number_format((float)$_SESSION['usuarioSaldo'], 2, '.', '');
-            header("Location: ../index2.php?");
-            header("Cache-Control: no-cache");
-            header("Expires: -1");
+            header("Location: ../index2.php?conta=". $row['numeroConta']);
           } else {
             header("Location: ../logar.php");
             $_SESSION['loginErro'] = 'Insira um cpf de usuário válido';
@@ -38,6 +35,13 @@
         header("Location: ../logar.php");
       }
     }
+
+    var_dump($_SESSION['usuarioSaldo']);
+    var_dump($_SESSION['UsuarioNome']);
+    var_dump($_SESSION['usuarioCpf']);
+    var_dump($_SESSION['numeroConta']);
+    var_dump($_SESSION['UsuarioSobrenome']);
+    var_dump($_SESSION['usuarioCelular']);
 ?>
     
     

@@ -136,6 +136,25 @@ body {
 #footer-modal{
     text-align: left;
 }
+#buttons{
+    display: flex;
+    margin-top: 14px;
+    padding: 0;
+    justify-content: center;
+    flex-direction: column;
+}
+#buttons button {
+    margin-bottom: 7px;
+}
+#form-edita{
+    width: 100%;
+    display: grid;
+    text-align: center;
+}
+#modal{
+    position: relative;
+    bottom: 85px;
+}
 /* 4a. etapa — Responsivo */
 @media (max-width: 500px) {
     body {margin-left:0;background-size:100% 28em!important;}
